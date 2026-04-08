@@ -1,0 +1,343 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --secondary: #a855f7;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.1);
+            --border: rgba(255, 255, 255, 0.1);
+            /* New gradient variables for the card */
+            --card-bg: #ffffff;
+            --card-hover-grad: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+        }
+
+        body {
+            background: radial-gradient(circle at 0% 0%, #1e1b4b 0%, var(--dark) 50%);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 2px solid var(--secondary);
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            color: white;
+            border: 2px solid white;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-p {
+            max-width: 600px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn-main {
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .secondary-btn {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: white;
+        }
+
+        .btn-main:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
+
+        .tech-images {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .tech-images img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            filter: grayscale(1) brightness(1.5);
+            transition: 0.3s;
+        }
+
+        .tech-images img:hover {
+            filter: grayscale(0);
+            transform: translateY(-10px);
+        }
+
+        footer {
+            background: var(--primary);
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 100px;
+        }
+
+        .show {
+            padding: 12px 20px;
+            border: none;
+            background: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .show:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+            color: white;
+            border: 1px solid white;
+        }
+
+        #courses {
+            display: none;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            position: relative;
+            background: var(--card-bg);
+            width: 220px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease, color 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            color: var(--dark);
+        }
+
+        /* Background gradient layer */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--card-hover-grad);
+            opacity: 0;
+            z-index: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        /* Keep content above the hover gradient */
+        .card img,
+        .card h3,
+        .card .enroll {
+            position: relative;
+            z-index: 2;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .card.active {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .card.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 8px;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card h3 {
+            margin: 15px 0;
+            font-size: 1.1rem;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .enroll {
+            position: relative;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .card:hover .enroll {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .card.show {
+            animation: fadeInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            opacity: 1;
+        }
