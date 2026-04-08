@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Signup</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+
+        .box {
+            width: 250px;
+            background: white;
+            padding: 20px;
+            margin: 100px auto;
+            border-radius: 10px;
+        }
+
+        input {
+            padding: 8px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <h2>Signup</h2>
+        <input type="text" id="username" placeholder="First Name"><br><br>
+        <input type="text" id="username" placeholder="Last Name"><br><br>
+        <input type="text" id="username" placeholder="Email Address"><br><br>
+        <input type="password" id="password" placeholder="Password"><br><br>
+        <button onclick="login()">Signup</button>
+        <p id="msg"></p>
+    </div>
+
+    <script>
+
+        function login() {
+            alert("Your Account is Created Successfully!")
+        }
+
+    </script>
+
+</body>
+
+</html>
