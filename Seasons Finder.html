@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            box-shadow: 0 0 10px #fff;
+            transform: scale(1.05);
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #ff7b00;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff5100;
+            transform: scale(1.1);
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <center>
+        <div class="container">
+            <h2>Seasons Finder</h2>
+            <br>
+            <input type="number" id="box1" placeholder="Enter Month Number">
+            <br>
+            <br>
+            <button onclick="season()">Check</button>
+            <br>
+            <br>
+            <h4 id="result"></h4>
+        </div>
+    </center>
+
+    <script>
+
+        function season() {
+
+            let n = Number(document.getElementById('box1').value);
+
+            let season;
+
+            if (n === 12 || n === 1 || n === 2) {
+                season = "Winter Season";
+            }
+
+            else if (n >= 3 && n <= 5) {
+                season = "Spring Season";
+            }
+
+            else if (n >= 6 && n <= 8) {
+                season = "Summer Season";
+            }
+
+            else if (n >= 9 && n <= 11) {
+                season = "Autumn Season";
+            }
+
+            else {
+                season = "Enter Correct Season";
+            }
+
+            document.getElementById('result').innerHTML = "Result: " + season;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

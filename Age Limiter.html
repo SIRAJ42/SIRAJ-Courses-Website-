@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            animation: bgMove 8s infinite alternate;
+        }
+
+        @keyframes bgMove {
+            0% {
+                background: linear-gradient(135deg, #667eea, #764ba2);
+            }
+
+            100% {
+                background: linear-gradient(135deg, #43cea2, #185a9d);
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 350px;
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px white;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            background: #ff7b00;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #ff4b00;
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            min-height: 40px;
+            transition: 0.4s;
+        }
+    </style>
+
+</head>
+
+<body>
+    <center>
+        <div class="container">
+            <h2>AGE Future Finder</h2>
+            <img src="akinator.png" width="200px" height="280px">
+            <br>
+            <br>
+            <br>
+            <input type="text" placeholder="Enter Your Name">
+            <br>
+            <br>
+            <input id="box1" type="number" placeholder="Enter Age">
+            <br>
+            <br>
+            <button onclick="age()">Check</button>
+            <br>
+            <br>
+            <h4 id="result"></h4>
+        </div>
+    </center>
+
+    <script>
+
+        function age() {
+
+            let n = Number(document.getElementById('box1').value);
+
+            let age;
+
+            if (n >= 1 && n <= 15) {
+                age = "Your Future will be a Learning to Walk / School Student / Computer Beginner / Drawinger / Science Explorer";
+            }
+
+            else if (n >= 16 && n <= 30) {
+                age = "Your Future will be a College Student / Graduate / FreeLancer / Programmer / Business-man";
+            }
+
+            else if (n >= 31 && n <= 45) {
+                age = "Your Future will be a Senior Professional / Doctor / IT Officer / Lawyer / Department Head";
+            }
+
+            else if (n >= 46 && n <= 60) {
+                age = "Your Future will be a Company Director / Senior Advisor / MPA / MNA / Cheif Officer";
+            }
+
+            else if (n >= 61 && n <= 75) {
+                age = "Your Future will be a Prime Minister / President / Judge or Cheif Justice / Minister / Retirement Planner";
+            }
+
+            else if (n >= 76 && n <= 100) {
+                age = "Keep focus on your Health & Enjoy your Life";
+            }
+
+            else {
+                age = "Enter Correct Age between 0 to 101";
+            }
+
+            document.getElementById('result').innerHTML = "Result: " + age;
+
+        }
+
+    </script>
+
+</body>
+
+</html>

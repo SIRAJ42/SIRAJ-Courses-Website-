@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Ludo Board</title>
+    <style>
+        :root {
+            --red: #ff0000;
+            --green: #00a82d;
+            --blue: #00a2ed;
+            --yellow: #fff200;
+            --border: 1px solid #000;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+        }
+
+        .ludo-board {
+            width: 600px;
+            height: 600px;
+            background-color: white;
+            display: grid;
+            grid-template-columns: 240px 120px 240px;
+            grid-template-rows: 240px 120px 240px;
+            border: 2px solid black;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        button a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Base Styles */
+        .base {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: var(--border);
+        }
+
+        .red {
+            background-color: var(--red);
+        }
+
+        .green {
+            background-color: var(--green);
+        }
+
+        .blue {
+            background-color: var(--blue);
+        }
+
+        .yellow {
+            background-color: var(--yellow);
+        }
+
+        .white-box {
+            width: 160px;
+            height: 160px;
+            background-color: white;
+            border: var(--border);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 15px;
+            gap: 20px;
+            border-radius: 35px;
+        }
+
+        .dot {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: var(--border);
+            margin-left: 9px;
+            margin-top: 8px;
+        }
+
+        .red-dot {
+            background-color: var(--red);
+        }
+
+        .green-dot {
+            background-color: var(--green);
+        }
+
+        .blue-dot {
+            background-color: var(--blue);
+        }
+
+        .yellow-dot {
+            background-color: var(--yellow);
+        }
+
+        /* Path Styles */
+        .path {
+            display: grid;
+        }
+
+        .vertical {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(6, 1fr);
+        }
+
+        .horizontal {
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        .cell {
+            border: 0.5px solid #555;
+            box-sizing: border-box;
+        }
+
+        /* Center Home Triangle */
+        .home-triangle {
+            position: relative;
+            border: var(--border);
+        }
+
+        .tri {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+
+        .top-tri {
+            border-width: 60px 60px 0 60px;
+            border-color: var(--green) transparent transparent transparent;
+            top: 0;
+        }
+
+        .bottom-tri {
+            border-width: 0 60px 60px 60px;
+            border-color: transparent transparent var(--blue) transparent;
+            bottom: 0;
+        }
+
+        .left-tri {
+            border-width: 60px 0 60px 60px;
+            border-color: transparent transparent transparent var(--red);
+            left: 0;
+        }
+
+        .right-tri {
+            border-width: 60px 60px 60px 0;
+            border-color: transparent var(--yellow) transparent transparent;
+            right: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="ludo-board">
+        <div class="base red">
+            <div class="white-box">
+                <div class="dot red-dot"></div>
+                <div class="dot red-dot"></div>
+                <div class="dot red-dot"></div>
+                <div class="dot red-dot"></div>
+            </div>
+        </div>
+        <div class="path vertical">
+            <div class="cell"></div>
+            <div class="cell"><img style="transform: rotate(180deg);" src="Green_Arrow-removebg-preview.png" width="40px" height="35px"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell green"></div>
+            <div class="cell green"></div>
+            <div class="cell"><img src="Star PNG.png" width="40px" height="35px"></div>
+            <div class="cell green"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell green"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell green"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell green"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="base green">
+            <div class="white-box">
+                <div class="dot green-dot"></div>
+                <div class="dot green-dot"></div>
+                <div class="dot green-dot"></div>
+                <div class="dot green-dot"></div>
+            </div>
+        </div>
+
+        <div class="path horizontal">
+            <div class="cell"></div>
+            <div class="cell red"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"><img style="transform: rotate(90deg);" src="Red_Arrow-removebg-preview.png" width="40px" height="35px"></div>
+            <div class="cell red"></div>
+            <div class="cell red"></div>
+            <div class="cell red"></div>
+            <div class="cell red"></div>
+            <div class="cell red"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"><img src="Star PNG.png" width="40px" height="35px"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>
+
+        <div class="home-triangle">
+            <div class="tri top-tri"></div>
+            <div class="tri bottom-tri"></div>
+            <div class="tri left-tri"></div>
+            <div class="tri right-tri"></div>
+        </div>
+
+        <div class="path horizontal">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"><img src="Star PNG.png" width="40px" height="35px"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell yellow"></div>
+            <div class="cell yellow"></div>
+            <div class="cell yellow"></div>
+            <div class="cell yellow"></div>
+            <div class="cell yellow"></div>
+            <div class="cell"><img style="transform: rotate(-90deg);" src="Yellow_Arrow-removebg-preview.png" width="40px" height="35px"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell yellow"></div>
+            <div class="cell"></div>
+        </div>
+
+        <div class="base blue">
+            <div class="white-box">
+                <div class="dot blue-dot"></div>
+                <div class="dot blue-dot"></div>
+                <div class="dot blue-dot"></div>
+                <div class="dot blue-dot"></div>
+            </div>
+        </div>
+        <div class="path vertical">
+            <div class="cell"></div>
+            <div class="cell blue"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell blue"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell blue"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell blue"></div>
+            <div class="cell"><img src="Star PNG.png" width="40px" height="35px"></div>
+            <div class="cell blue"></div>
+            <div class="cell blue"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"><img src="Blue_Arrow-removebg-preview.png" width="40px" height="35px"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="base yellow">
+            <div class="white-box">
+                <div class="dot yellow-dot"></div>
+                <div class="dot yellow-dot"></div>
+                <div class="dot yellow-dot"></div>
+                <div class="dot yellow-dot"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

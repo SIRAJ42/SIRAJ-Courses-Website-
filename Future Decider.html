@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Future Finder</title>
+</head>
+
+<body>
+    <center>
+        <h1>Age Future Decider</h1>
+        <img src="Hand Fingers IMG.jpg" width="200px" height="250px">
+        <br>
+        <br>
+        <input type="text" id="box1" placeholder="Enter Your Name">
+        <br>
+        <br>
+        <input type="number" id="box2" placeholder="Enter Your Name">
+        <br>
+        <br>
+        <button onclick="checkme()">Check Luck</button>
+        <br>
+        <br>
+        <h3 id="result"></h3>
+    </center>
+
+    <script>
+        function checkme() {
+            let name = document.getElementById("box1").value;
+            let age = Number(document.getElementById('box2').value);
+            let n = Math.floor(Math.random() * 4) + 1;
+
+            let future = "";
+
+            if (age >= 1 && age <= 10) {
+                if (n === 1) { future = "You will eat candy for breakfast forever!"; }
+                else if (n === 2) { future = "Your toys will rule the world"; }
+                else if (n === 3) { future = "You might become a superhero"; }
+                else { future = "Homework will magically disappear!"; }
+            }
+            else if (age >= 11 && age <= 20) {
+                if (n === 1) { future = "Your memes will become famous"; }
+                else if (n === 2) { future = "You might sleep through an exam and still pass"; }
+                else if (n === 3) { future = "Aliens might call you for advice"; }
+                else { future = "Your phone battery will last forever!"; }
+            }
+            else if (age >= 21 && age <= 30) {
+                if (n === 1) { future = "You will own 1000 socks but no shoes"; }
+                else if (n === 2) { future = "Your coffee addiction will reach new heights"; }
+                else if (n === 3) { future = "You might invent a time machine by accident"; }
+                else { future = "You will binge-watch everything in one weekend"; }
+            }
+            else if (age >= 31 && age <= 40) {
+                if (n === 1) { future = "You will find money in the couch cushions"; }
+                else if (n === 2) { future = "Your pets will become your life coach"; }
+                else if (n === 3) { future = "You will master the art of napping"; }
+                else { future = "Your fridge will always have snacks"; }
+            }
+            else if (age >= 41 && age <= 50) {
+                if (n === 1) { future = "Your jokes will finally make people laugh"; }
+                else if (n === 2) { future = "You will become a professional high-fiver"; }
+                else if (n === 3) { future = "You might talk to plants and they will answer"; }
+                else { future = "Your shoes will dance on their own"; }
+            }
+            else if (age >= 51 && age <= 60) {
+                if (n === 1) { future = "You will laugh at your own jokes daily"; }
+                else if (n === 2) { future = "You might discover a hidden talent for karaoke"; }
+                else if (n === 3) { future = "Your pillow will give the best advice"; }
+                else { future = "You will have epic snack adventures"; }
+            }
+            else if (age >= 61 && age <= 70) {
+                if (n === 1) { future = "You will have magical hair days always"; }
+                else if (n === 2) { future = "Your neighbors will join your dance party"; }
+                else if (n === 3) { future = "You might become the world's funniest grandparent"; }
+                else { future = "Your socks will never have holes"; }
+            }
+            else if (age >= 71 && age <= 80) {
+                if (n === 1) { future = "You will become a meme legend"; }
+                else if (n === 2) { future = "Your glasses will always find themselves"; }
+                else if (n === 3) { future = "You might teach the cat new tricks"; }
+                else { future = "Your laughter will be contagious"; }
+            }
+            else if (age >= 81 && age <= 90) {
+                if (n === 1) { future = "You will invent a new silly language"; }
+                else if (n === 2) { future = "Your laugh will echo for miles"; }
+                else if (n === 3) { future = "You might accidentally become famous online"; }
+                else { future = "Your nap skills will be unmatched"; }
+            }
+            else if (age >= 91 && age <= 100) {
+                if (n === 1) { future = "You will tell stories that make history books jealous"; }
+                else if (n === 2) { future = "You might moonwalk across the living room"; }
+                else if (n === 3) { future = "Your candy stash will be legendary"; }
+                else { future = "You will find the perfect spot in the sun every day"; }
+            }
+            else {
+                future = "Please Take Rest";
+            }
+
+            document.write("<center>");
+            document.write("<div id='winter'>" + name + "</div>" + "<br>");
+            document.write("<div id='summer'>" + age + "</div>" + "<br>");
+            document.write("<div id='fog'>" + future + "</div>");
+
+            let boy = document.getElementById('winter');
+            boy.style.background = "green";
+            boy.style.padding = "20px";
+            boy.style.borderRadius = "20px";
+            boy.style.color = "white";
+            boy.style.border = "5px solid blue";
+            let girl = document.getElementById('summer');
+            girl.style.background = "red";
+            girl.style.padding = "20px";
+            girl.style.borderRadius = "20px";
+            girl.style.color = "white";
+            girl.style.border = "5px solid cyan";
+            let gender = document.getElementById('fog');
+            gender.style.padding = "20px";
+            gender.style.background = "orange";
+            gender.style.borderRadius = "20px";
+            gender.style.color = "white";
+            gender.style.border = "5px solid brown";
+
+            document.write("</center>");
+        }
+    </script>
+
+</body>
+
+</html>

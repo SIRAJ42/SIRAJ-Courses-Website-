@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Hello, World!</title>
+  <style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  center {
+    background: linear-gradient(135deg, #4facfe, #190094);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 300px;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+
+  h1 {
+    color: white;
+    margin-bottom: 50px;
+  }
+
+  input {
+    width: 80%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    outline: none;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+
+  input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 8px #667eea;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #667eea;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: #5a67d8;
+    transform: scale(1.05);
+  }
+
+  button:active {
+    transform: scale(0.95);
+  }
+
+  .result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+    min-height: 24px;
+    transition: 0.3s;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+  <center>
+  <h1>
+    Guess Any Number
+  </h1>
+  <img src="guessnumber.png" width="200px" height="270px">
+  <br>
+    <br>
+    <br>
+    <input type="number" id="box1" placeholder="Enter any Number">
+    <br>
+    <br>
+    <button onclick="submit()">Luck</button>
+    <br>
+    <h4 class="result"></h4>
+  </center>
+</body>
+
+<script>
+  function submit() {
+    let name = Number(document.querySelector('#box1').value);
+    let n = Math.floor(Math.random() * 10) + 1;
+
+    let luck = "";
+    let resultBox = document.querySelector(".result");
+
+    if (name >= 1 && name <= 10) {
+      if (n === name) {
+        luck = "🎉 You won this game!";
+        resultBox.style.color = "green";
+      } else {
+        luck = "❌ You lose! Number was " + n;
+        resultBox.style.color = "red";
+      }
+    } else {
+      luck = "⚠️ Enter a number between 1 and 10";
+      resultBox.style.color = "orange";
+    }
+
+    resultBox.innerText = luck;
+  }
+</script>
+
+</html>
